@@ -6,11 +6,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class ejercicio5 {
+public class Ejercicio5 {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TreeMap<Integer, producto> productos = new TreeMap<>();
+        TreeMap<Integer, Producto> productos = new TreeMap<>();
         int opcion;
 final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
         do {
@@ -40,7 +40,7 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
                         sc.nextLine();
                         System.out.print("Fecha de vencimiento (AAAA-MM-DD): ");
                         LocalDate fecha = LocalDate.parse(sc.nextLine());
-                        productos.put(clave, new producto(desc, precio, fecha));
+                        productos.put(clave, new Producto(desc, precio, fecha));
                         // Inserción correcta en la colección
                         System.out.println("Producto agregado con éxito.");
                     }
@@ -48,9 +48,9 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
 
                 case 2:
                     // Uso de Iterator para recorrer y mostrar clave + objeto producto
-                    Iterator<Map.Entry<Integer, producto>> it = productos.entrySet().iterator();
+                    Iterator<Map.Entry<Integer, Producto>> it = productos.entrySet().iterator();
                     while (it.hasNext()) {
-                        Map.Entry<Integer, producto> entry = it.next();
+                        Map.Entry<Integer, Producto> entry = it.next();
                         System.out.println("Clave: " + entry.getKey() + " -> " + entry.getValue());
                     }
                     break;
