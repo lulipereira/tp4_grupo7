@@ -1,13 +1,13 @@
 package ar.edu.unju.escmi.tp4.ejercicio6;
 
-public class libro implements Comparable<libro> {
+public class Libro implements Comparable<Libro> {
     private String isbn;
     private String titulo;
     private int cantPaginas;
     private String autor;
 
     // Constructor por defecto requerido en la consigna
-    public libro() {
+    public Libro() {
     }
 
     // Método solicitado para mostrar los datos del libro
@@ -17,7 +17,7 @@ public class libro implements Comparable<libro> {
 
     // Implementación de la interfaz Comparable para ordenar por título
     @Override
-    public int compareTo(libro otro) {
+    public int compareTo(Libro otro) {
         return this.titulo.compareToIgnoreCase(otro.titulo);
     }
 

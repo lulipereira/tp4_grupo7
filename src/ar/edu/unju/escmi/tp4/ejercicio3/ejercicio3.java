@@ -2,15 +2,14 @@ package ar.edu.unju.escmi.tp4.ejercicio3;
 
 import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 
-public class ejercicio3 {
+public class Ejercicio3 {
     public static final String ROSA = "\u001B[95m";
     public static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TreeSet<paciente> pacientes = new TreeSet<>();
+        TreeSet<Paciente> pacientes = new TreeSet<>();
         int opcion;
 
         do {
@@ -23,12 +22,13 @@ public class ejercicio3 {
             System.out.println(ROSA + "6 Filtrar por historia clínica" + RESET);
             System.out.println(ROSA + "7 Salir" + RESET);
             System.out.print(ROSA + "Ingrese opción: " + RESET);
+
             opcion = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); // limpiar buffer
 
             switch (opcion) {
-                case 1:
-                    paciente p = new paciente();
+                case 1 -> {
+                    Paciente p = new Paciente();
                     System.out.print("DNI: ");
                     p.setDni(sc.nextLine());
                     System.out.print("Nombre: ");
@@ -40,42 +40,41 @@ public class ejercicio3 {
                     sc.nextLine();
                     System.out.print("Obra social: ");
                     p.setObraSocial(sc.nextLine());
-                    pacientes.add(p);
-                    System.out.println(ROSA + "Paciente agregado." + RESET);
-                    break;
-
-                case 2:
+                    if (pacientes.add(p)) {
+                        System.out.println(ROSA + "Paciente agregado." + RESET);
+                    } else {
+                        System.out.println("El paciente ya existe con ese número de historia clínica.");
+                    }
+                }
+                case 2 -> {
                     System.out.println(ROSA + "\n--- LISTA DE PACIENTES ---" + RESET);
                     pacientes.stream().forEach(System.out::println);
-                    break;
-
-                case 3:
+                }
+                case 3 -> {
                     if (!pacientes.isEmpty()) {
                         int mitad = pacientes.size() / 2;
-                        paciente pacienteMitad = pacientes.stream()
-                                .collect(Collectors.toList())
-                                .get(mitad);
+                        Paciente pacienteMitad = pacientes.stream()
+                                .skip(mitad)
+                                .findFirst()
+                                .orElse(null);
                         System.out.println(ROSA + "Paciente en la mitad: " + RESET + pacienteMitad);
                     } else {
                         System.out.println("No hay pacientes.");
                     }
-                    break;
-
-                case 4:
+                }
+                case 4 -> {
                     if (!pacientes.isEmpty())
                         System.out.println(ROSA + "Primer paciente: " + RESET + pacientes.first());
                     else
                         System.out.println("No hay pacientes.");
-                    break;
-
-                case 5:
+                }
+                case 5 -> {
                     if (!pacientes.isEmpty())
                         System.out.println(ROSA + "Último paciente: " + RESET + pacientes.last());
                     else
                         System.out.println("No hay pacientes.");
-                    break;
-
-                case 6:
+                }
+                case 6 -> {
                     System.out.print("Ingrese un número de historia clínica: ");
                     int hc = sc.nextInt();
                     sc.nextLine();
@@ -83,14 +82,9 @@ public class ejercicio3 {
                     pacientes.stream()
                             .filter(pa -> pa.getNumeroHistoriaClinica() > hc)
                             .forEach(System.out::println);
-                    break;
-
-                case 7:
-                    System.out.println(ROSA + "Saliendo..." + RESET);
-                    break;
-
-                default:
-                    System.out.println("Opción inválida.");
+                }
+                case 7 -> System.out.println(ROSA + "Saliendo..." + RESET);
+                default -> System.out.println("Opción inválida.");
             }
 
         } while (opcion != 7);

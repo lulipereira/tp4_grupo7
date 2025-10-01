@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ejercicio6 {
+public class Ejercicio6 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<libro> libros = new ArrayList<>();
+        ArrayList<Libro> libros = new ArrayList<>();
         int opcion;
 final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
         do {
@@ -27,7 +27,7 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
             switch (opcion) {
                 case 1:
                     // Alta utilizando el constructor por defecto y setters
-                    libro l = new libro();
+                    Libro l = new Libro();
                     System.out.print("ISBN: ");
                     l.setIsbn(sc.nextLine());
                     System.out.print("Título: ");
@@ -43,7 +43,7 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
 
                 case 2:
                     // Muestra de libros utilizando el método mostrarDatos()
-                    for (libro libro : libros) {
+                    for (Libro libro : libros) {
                         libro.mostrarDatos();
                     }
                     break;
@@ -53,7 +53,7 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
                     System.out.print("Ingrese ISBN a buscar: ");
                     String isbnBuscar = sc.nextLine();
                     boolean encontrado = false;
-                    for (libro libro : libros) {
+                    for (Libro libro : libros) {
                         if (libro.getIsbn().equals(isbnBuscar)) {
                             libro.mostrarDatos();
                             encontrado = true;
@@ -76,7 +76,7 @@ final String ROSA = "\u001B[38;5;205m";// color rosa para el menu :)
                     System.out.print("Ingrese ISBN a modificar: ");
                     String isbnModificar = sc.nextLine();
                     boolean modificado = false;
-                    for (libro libro : libros) {
+                    for (Libro libro : libros) {
                         if (libro.getIsbn().equals(isbnModificar)) {
                             libro.mostrarDatos();
                             System.out.print("Nuevo título: ");
