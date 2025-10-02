@@ -3,7 +3,7 @@ package ar.edu.unju.escmi.tp4.ejercicio4;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class Ejercicio4 {
+public class ejercicio4 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -29,19 +29,24 @@ public class Ejercicio4 {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese DNI: ");
-                    String dni = sc.nextLine().trim();
-                    System.out.print("Ingrese nombre: ");
-                    String nombre = sc.nextLine().trim();
-                    System.out.print("Ingrese tipo de cliente (ocasional o frecuente): ");
-                    String tipo = sc.nextLine().trim().toLowerCase();
-                    Cliente nuevo = new Cliente(dni, nombre, tipo);
-                    if (clientes.add(nuevo)) {
-                        System.out.println("Cliente agregado.");
-                    } else {
-                        System.out.println("Ya existe un cliente con ese DNI.");
-                    }
-                    break;
+                       System.out.print("Ingrese DNI: ");
+                       String dni = sc.nextLine().trim();
+                       System.out.print("Ingrese nombre: ");
+                       String nombre = sc.nextLine().trim();
+                       System.out.print("Ingrese tipo de cliente (ocasional o frecuente): ");
+                       String tipo = sc.nextLine().trim().toLowerCase();
+                       if (!tipo.equals("ocasional") && !tipo.equals("frecuente")) {
+                        System.out.println("Tipo de cliente inválido. Debe ser 'ocasional' o 'frecuente'.");
+                        break;
+    }
+
+    Cliente nuevo = new Cliente(dni, nombre, tipo);
+    if (clientes.add(nuevo)) {
+        System.out.println("Cliente agregado.");
+    } else {
+        System.out.println("Ya existe un cliente con ese DNI.");
+    }
+    break;
 
                 case 2:
                     System.out.print("Ingrese el DNI del cliente a buscar: ");

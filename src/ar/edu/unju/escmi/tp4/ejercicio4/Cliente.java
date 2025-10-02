@@ -6,6 +6,9 @@ public class Cliente {
     private String tipoCliente;
 
     public Cliente(String dni, String nombre, String tipoCliente) {
+        if (!tipoCliente.equalsIgnoreCase("ocasional") && !tipoCliente.equalsIgnoreCase("frecuente")) {
+    throw new IllegalArgumentException("Tipo de cliente debe ser 'ocasional' o 'frecuente'");
+}
         this.dni = dni;
         this.nombre = nombre;
         this.tipoCliente = tipoCliente;
