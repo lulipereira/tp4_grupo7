@@ -13,7 +13,7 @@ public class Ejercicio3 {
         int opcion;
 
         do {
-            System.out.println(ROSA + "\n********** MENÚ PACIENTES **********" + RESET);
+            System.out.println(ROSA + "\n********** MENU PACIENTES **********" + RESET);
             System.out.println(ROSA + "1 Alta de paciente" + RESET);
             System.out.println(ROSA + "2 Mostrar todos los pacientes" + RESET);
             System.out.println(ROSA + "3 Mostrar paciente en la mitad de la lista" + RESET);
@@ -54,9 +54,8 @@ public class Ejercicio3 {
                     if (!pacientes.isEmpty()) {
                         int mitad = pacientes.size() / 2;
                         Paciente pacienteMitad = pacientes.stream()
-                                .skip(mitad)
-                                .findFirst()
-                                .orElse(null);
+                                .collect(java.util.stream.Collectors.toList())
+                                .get(mitad);
                         System.out.println(ROSA + "Paciente en la mitad: " + RESET + pacienteMitad);
                     } else {
                         System.out.println("No hay pacientes.");
