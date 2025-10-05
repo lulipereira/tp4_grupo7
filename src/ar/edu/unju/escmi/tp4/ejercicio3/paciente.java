@@ -9,36 +9,29 @@ public class Paciente implements Comparable<Paciente> {
 
     public Paciente() {}
 
-    public String getDni() {
-        return dni;
-    }
-    public void setDni(String dni) {
+    public Paciente(String dni, String nombre, String apellido, int numeroHistoriaClinica, String obraSocial) {
         this.dni = dni;
-    }
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public String getApellido() {
-        return apellido;
-    }
-    public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-    public int getNumeroHistoriaClinica() {
-        return numeroHistoriaClinica;
-    }
-    public void setNumeroHistoriaClinica(int numeroHistoriaClinica) {
         this.numeroHistoriaClinica = numeroHistoriaClinica;
-    }
-    public String getObraSocial() {
-        return obraSocial;
-    }
-    public void setObraSocial(String obraSocial) {
         this.obraSocial = obraSocial;
     }
+
+    // Getters y Setters
+    public String getDni() { return dni; }
+    public void setDni(String dni) { this.dni = dni; }
+
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getApellido() { return apellido; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
+
+    public int getNumeroHistoriaClinica() { return numeroHistoriaClinica; }
+    public void setNumeroHistoriaClinica(int numeroHistoriaClinica) { this.numeroHistoriaClinica = numeroHistoriaClinica; }
+
+    public String getObraSocial() { return obraSocial; }
+    public void setObraSocial(String obraSocial) { this.obraSocial = obraSocial; }
 
     @Override
     public String toString() {
@@ -56,3 +49,4 @@ public class Paciente implements Comparable<Paciente> {
         return Integer.compare(this.numeroHistoriaClinica, otro.numeroHistoriaClinica);
     }
 }
+
