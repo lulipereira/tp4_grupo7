@@ -1,13 +1,13 @@
 package ar.edu.unju.escmi.tp4.ejercicio3;
 
-public class paciente implements Comparable<paciente> {
+public class Paciente implements Comparable<Paciente> {
     private String dni;
     private String nombre;
     private String apellido;
     private int numeroHistoriaClinica;
     private String obraSocial;
 
-    public paciente() {}
+    public Paciente() {}
 
     public String getDni() {
         return dni;
@@ -52,7 +52,7 @@ public class paciente implements Comparable<paciente> {
     }
 
     @Override
-    public int compareTo(paciente otro) {
+    public int compareTo(Paciente otro) {
         return Integer.compare(this.numeroHistoriaClinica, otro.numeroHistoriaClinica);
     }
 }

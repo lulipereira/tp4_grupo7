@@ -4,17 +4,17 @@ import java.util.Scanner;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public class ejercicio3 {
+public class Ejercicio3 {
     public static final String ROSA = "\u001B[95m";
     public static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TreeSet<paciente> pacientes = new TreeSet<>();
+        TreeSet<Paciente> pacientes = new TreeSet<>();
         int opcion;
 
         do {
-            System.out.println(ROSA + "\n********** MENÚ PACIENTES **********" + RESET);
+            System.out.println(ROSA + "\n********** MENU PACIENTES **********" + RESET);
             System.out.println(ROSA + "1 Alta de paciente" + RESET);
             System.out.println(ROSA + "2 Mostrar todos los pacientes" + RESET);
             System.out.println(ROSA + "3 Mostrar paciente en la mitad de la lista" + RESET);
@@ -28,7 +28,7 @@ public class ejercicio3 {
 
             switch (opcion) {
                 case 1:
-                    paciente p = new paciente();
+                    Paciente p = new Paciente();
                     System.out.print("DNI: ");
                     p.setDni(sc.nextLine());
                     System.out.print("Nombre: ");
@@ -52,7 +52,7 @@ public class ejercicio3 {
                 case 3:
                     if (!pacientes.isEmpty()) {
                         int mitad = pacientes.size() / 2;
-                        paciente pacienteMitad = pacientes.stream()
+                        Paciente pacienteMitad = pacientes.stream()
                                 .collect(Collectors.toList())
                                 .get(mitad);
                         System.out.println(ROSA + "Paciente en la mitad: " + RESET + pacienteMitad);
