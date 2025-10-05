@@ -6,7 +6,6 @@ public class Libro implements Comparable<Libro> {
     private int cantPaginas;
     private String autor;
 
-    // Constructor por defecto requerido en la consigna
     public Libro() {
     }
 
@@ -21,7 +20,6 @@ public class Libro implements Comparable<Libro> {
         return this.titulo.compareToIgnoreCase(otro.titulo);
     }
 
-    // Getters y Setters
     public String getIsbn() { return isbn; }
     public void setIsbn(String isbn) { this.isbn = isbn; }
 
